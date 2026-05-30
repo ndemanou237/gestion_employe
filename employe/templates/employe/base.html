@@ -10,12 +10,15 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="{% static 'css/output.css' %}">
 </head>
-<body>
-    
-    {% block content %}
-    
-    
-    {% endblock %}
-    
+<body>  
+    <div class="flex justify-center mt-32">
+        <div class="flex flex-col w-3xl bg-base-200 rounded-xl p-6">
+            <div class="w-full h-fit">
+                {% block content %}
+
+                {% endblock  %}
+            </div>
+        </div>
+    </div>
 </body>
 </html>
