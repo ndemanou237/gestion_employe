@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     
     path('', views.liste_employes, name="liste_employes"),
+    path('ajouter/', views.ajouter_employer, name="ajouter_employe"),
 ]
