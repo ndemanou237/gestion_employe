@@ -1,4 +1,4 @@
-from django.shortcuts import render,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .models import Employe
 from .forms import EmployeForm
 
@@ -9,7 +9,7 @@ def liste_employes(request):
         }
     return render(request, "employe/list.html", context)
 
-def ajouter_employer(request):
+def ajouter_employe(request):
     form = EmployeForm(request.POST or None)
     if form.is_valid():
         form.save()
@@ -18,4 +18,15 @@ def ajouter_employer(request):
         'form':form
         }
     return render(request, "employe/formulaire.html", context)
+
+def modifier_employe(request,id):
+    employe = get_object_or_404(Employe,id=id)
+    form = EmployeForm(request.POST or None, instance=employe) 
+    if form.is_valid():
+        form.save()
+        return redirect('liste_employes')
+    context = {
+        'form':form
+        }
+    return render(request, "employe/formulaire.html", context)   
 
