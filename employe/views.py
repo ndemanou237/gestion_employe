@@ -28,5 +28,16 @@ def modifier_employe(request,id):
     context = {
         'form':form
         }
-    return render(request, "employe/formulaire.html", context)   
+    return render(request, "employe/formulaire.html", context)  
+
+def supprimer_employe(request,id):
+    employe = get_object_or_404(Employe,id=id)
+    if request.method == "POST":
+        employe.delete()
+        return redirect('liste_employe')
+    context = {
+        'employe': employe
+        }
+    return render(request, "employe/confirmer_supression.html", context)  
+
 

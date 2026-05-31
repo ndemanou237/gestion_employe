@@ -2,7 +2,7 @@
 
 
 {% block content %}
-    <form method="POST" class="space-y-2">
+    <form method="POST" class="space-y-4">
         {% csrf_token %}
         {{form.nom}}
         {{form.email}}
