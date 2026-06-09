@@ -13,7 +13,7 @@ def ajouter_employe(request):
     form = EmployeForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect('liste_employes')
+        return redirect('liste_employe')
     context = {
         'form':form
         }
